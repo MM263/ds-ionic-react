@@ -18,7 +18,7 @@ const slice = createSlice({
   initialState: initialExpenses as SliceState,
   reducers: {
     add: (state, action: PayloadAction<Expense>) => {
-      state = [...state, action.payload];
+      state = [action.payload, ...state];
     },
     clear: (state) => {
       state = [];

@@ -7,7 +7,11 @@ import {
   IonCardHeader,
   IonText,
   IonChip,
+  IonFab,
+  IonFabButton,
+  IonIcon,
 } from "@ionic/react";
+import { add } from "ionicons/icons";
 import { Page } from "../../components/Page";
 import { useExpenses } from "../../state/expenses/hooks";
 
@@ -15,6 +19,11 @@ export const List = () => {
   const expenses = useExpenses();
   return (
     <Page title="💎 Expenses 💎">
+      <IonFab vertical="bottom" horizontal="start" slot="fixed">
+        <IonFabButton color="primary" href="/add">
+          <IonIcon icon={add} />
+        </IonFabButton>
+      </IonFab>
       {expenses.map((expense) => (
         <IonCard>
           <IonCardHeader>
