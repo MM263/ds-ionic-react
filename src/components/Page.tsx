@@ -5,19 +5,27 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonButtons,
+  IonBackButton,
 } from "@ionic/react";
 
 interface Props {
   children: React.ReactNode;
   title: string;
+  back?: boolean;
 }
 
-export const Page = ({ children }: Props) => {
+export const Page = ({ children, back = false, title }: Props) => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>💎 Expenses 💎</IonTitle>
+          {back && (
+            <IonButtons slot="start">
+              <IonBackButton defaultHref="/list" />
+            </IonButtons>
+          )}
+          <IonTitle>{title}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>{children}</IonContent>

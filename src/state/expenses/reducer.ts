@@ -6,7 +6,7 @@ type SliceState = Expense[];
 const initialExpenses = [
   {
     name: "Hearty Breakfast",
-    date: new Date("2021-04-05T22:49:22Z"),
+    date: "2021-04-05T22:49:22Z",
     cost: 20,
     category: "Food and drinks",
     notes: "Yum",
@@ -18,7 +18,7 @@ const slice = createSlice({
   initialState: initialExpenses as SliceState,
   reducers: {
     add: (state, action: PayloadAction<Expense>) => {
-      state = [action.payload, ...state];
+      state.unshift(action.payload);
     },
     clear: (state) => {
       state = [];

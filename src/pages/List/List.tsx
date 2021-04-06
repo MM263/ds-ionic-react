@@ -17,17 +17,20 @@ import { useExpenses } from "../../state/expenses/hooks";
 
 export const List = () => {
   const expenses = useExpenses();
+
   return (
     <Page title="💎 Expenses 💎">
       <IonFab vertical="bottom" horizontal="start" slot="fixed">
-        <IonFabButton color="primary" href="/add">
+        <IonFabButton color="primary" routerLink="/add">
           <IonIcon icon={add} />
         </IonFabButton>
       </IonFab>
-      {expenses.map((expense) => (
-        <IonCard>
+      {expenses.map((expense, i) => (
+        <IonCard key={`expense-${i}`}>
           <IonCardHeader>
-            <IonCardSubtitle>{formatDate(expense.date)}</IonCardSubtitle>
+            <IonCardSubtitle>
+              {formatDate(new Date(expense.date))}
+            </IonCardSubtitle>
             <IonCardTitle>
               {expense.name} - ${expense.cost}
             </IonCardTitle>

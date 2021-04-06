@@ -13,9 +13,7 @@ export const Router: React.FC = () => (
       <Route exact path="/">
         <Redirect to="/list" />
       </Route>
-      <Route exact path="/add">
-        <AddExpense />
-      </Route>
+      <Route exact path="/add" component={AddExpense} />
     </IonRouterOutlet>
   </IonReactRouter>
 );
